@@ -1,4 +1,4 @@
-import { createFileRoute, Link, useNavigate } from "@tanstack/react-router";
+import { Link, useNavigate, useParams } from "react-router-dom";
 import { useMemo, useState } from "react";
 import { CalendarX } from "lucide-react";
 import { movies } from "@/data/movies";
@@ -8,12 +8,8 @@ import { DateTabs } from "@/components/DateTabs";
 import { EmptyState } from "@/components/EmptyState";
 import { formatDuration, formatTime12h, money, nextDays, sameDay } from "@/lib/format";
 
-export const Route = createFileRoute("/movies/$movieId")({
-  component: MovieDetail,
-});
-
-function MovieDetail() {
-  const { movieId } = Route.useParams();
+export function MovieDetailPage() {
+  const { movieId } = useParams<{ movieId: string }>();
   const navigate = useNavigate();
   const movie = movies.find((m) => m.id === movieId);
   const dates = useMemo(() => nextDays(7), []);
@@ -77,12 +73,7 @@ function MovieDetail() {
                 {dayShowtimes.map((s) => (
                   <button
                     key={s.id}
-                    onClick={() =>
-                      navigate({
-                        to: "/booking/$showtimeId",
-                        params: { showtimeId: String(s.id) },
-                      })
-                    }
+                    onClick={() => navigate(`/booking/${s.id}`)}
                     className="flex items-center justify-between rounded-lg border bg-card p-4 text-left transition hover:border-primary hover:shadow-sm"
                   >
                     <div>

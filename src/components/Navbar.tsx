@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Link } from "@tanstack/react-router";
+import { Link, NavLink } from "react-router-dom";
 import { Menu, ShoppingCart, X } from "lucide-react";
 import { useAppSelector } from "@/store/hooks";
 
@@ -10,27 +10,28 @@ export function Navbar() {
 
   const links = (
     <>
-      <Link
+      <NavLink
         to="/"
-        activeOptions={{ exact: true }}
-        className="text-sm font-medium hover:text-primary"
-        activeProps={{ className: "text-primary" }}
+        end
+        className={({ isActive }) =>
+          `text-sm font-medium hover:text-primary ${isActive ? "text-primary" : ""}`
+        }
         onClick={() => setOpen(false)}
       >
         Movies
-      </Link>
-      <Link
+      </NavLink>
+      <NavLink
         to="/bookings"
-        className="text-sm font-medium hover:text-primary"
-        activeProps={{ className: "text-primary" }}
+        className={({ isActive }) =>
+          `text-sm font-medium hover:text-primary ${isActive ? "text-primary" : ""}`
+        }
         onClick={() => setOpen(false)}
       >
         My Bookings
-      </Link>
+      </NavLink>
       {cart.showtimeId ? (
         <Link
-          to="/booking/$showtimeId"
-          params={{ showtimeId: String(cart.showtimeId) }}
+          to={`/booking/${cart.showtimeId}`}
           className="relative inline-flex items-center"
           onClick={() => setOpen(false)}
           aria-label="Cart"

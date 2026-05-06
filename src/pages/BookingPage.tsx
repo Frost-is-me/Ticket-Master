@@ -1,4 +1,4 @@
-import { createFileRoute, Link } from "@tanstack/react-router";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useMemo, useState } from "react";
 import { ArrowLeft, X, CheckCircle2 } from "lucide-react";
 import { showtimes } from "@/data/showtimes";
@@ -14,12 +14,8 @@ import { addSeat, removeSeat, clearCart, setExpiry } from "@/store/cartSlice";
 import { formatLongDate, formatTime12h, money } from "@/lib/format";
 import { generateBookingRef, generateId, saveBooking } from "@/lib/bookings";
 
-export const Route = createFileRoute("/booking/$showtimeId")({
-  component: BookingPage,
-});
-
-function BookingPage() {
-  const { showtimeId } = Route.useParams();
+export function BookingPage() {
+  const { showtimeId } = useParams<{ showtimeId: string }>();
   const id = Number(showtimeId);
   const showtime = showtimes.find((s) => s.id === id);
   const movie = showtime ? movies.find((m) => m.id === showtime.movieId) : null;
@@ -35,6 +31,10 @@ function BookingPage() {
   const [email, setEmail] = useState("");
   const [emailError, setEmailError] = useState("");
   const [confirmed, setConfirmed] = useState<{ ref: string } | null>(null);
+
+  useEffect(() => {
+    if (showtime) setSeats(getSeatsForShowtime(showtime.id));
+  }, [showtime?.id]);
 
   const selectedKeys = useMemo(() => {
     if (cart.showtimeId !== id) return new Set<string>();
@@ -62,10 +62,7 @@ function BookingPage() {
       toast("Seat removed", "info");
     } else {
       dispatch(
-        addSeat({
-          showtimeId: id,
-          seat: { rowLabel: seat.rowLabel, seatNumber: seat.seatNumber },
-        }),
+        addSeat({ showtimeId: id, seat: { rowLabel: seat.rowLabel, seatNumber: seat.seatNumber } }),
       );
       toast("Seat added", "success");
     }
@@ -112,8 +109,7 @@ function BookingPage() {
   return (
     <div className="mx-auto max-w-6xl px-4 py-6">
       <Link
-        to="/movies/$movieId"
-        params={{ movieId: movie.id }}
+        to={`/movies/${movie.id}`}
         className="mb-4 inline-flex items-center gap-1 text-sm text-muted-foreground hover:text-foreground"
       >
         <ArrowLeft className="h-4 w-4" /> Back
@@ -209,9 +205,8 @@ function BookingPage() {
         title="Confirm your booking"
       >
         <p className="text-sm text-muted-foreground">
-          You are reserving {selectedSeats.length} seat
-          {selectedSeats.length === 1 ? "" : "s"} for {movie.title} at{" "}
-          {formatTime12h(showtime.startTime)}.
+          You are reserving {selectedSeats.length} seat{selectedSeats.length === 1 ? "" : "s"} for{" "}
+          {movie.title} at {formatTime12h(showtime.startTime)}.
         </p>
         <ul className="mt-3 max-h-40 overflow-auto rounded border bg-muted/30 p-2 text-sm">
           {selectedSeats.map((s) => (
