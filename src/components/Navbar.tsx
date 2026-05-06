@@ -47,7 +47,7 @@ export function Navbar() {
               <Film className="h-5 w-5" />
             </div>
             <span className="text-xl font-bold tracking-tight">
-              CineSeat
+              Ticket Master
             </span>
           </Link>
           <nav className="hidden items-center gap-8 md:flex">{links}</nav>
