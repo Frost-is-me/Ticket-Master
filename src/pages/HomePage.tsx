@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Film } from "lucide-react";
 import { movies } from "@/data/movies";
@@ -6,11 +5,7 @@ import { MovieCard } from "@/components/MovieCard";
 import { Skeleton } from "@/components/Skeleton";
 import { EmptyState } from "@/components/EmptyState";
 
-export const Route = createFileRoute("/")({
-  component: Index,
-});
-
-function Index() {
+export function HomePage() {
   const [loading, setLoading] = useState(true);
   useEffect(() => {
     const t = setTimeout(() => setLoading(false), 400);

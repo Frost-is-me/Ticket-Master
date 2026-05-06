@@ -1,4 +1,3 @@
-import { createFileRoute } from "@tanstack/react-router";
 import { useEffect, useState } from "react";
 import { Ticket } from "lucide-react";
 import { getBookings, type Booking } from "@/lib/bookings";
@@ -6,11 +5,7 @@ import { Badge } from "@/components/Badge";
 import { EmptyState } from "@/components/EmptyState";
 import { formatLongDate, money } from "@/lib/format";
 
-export const Route = createFileRoute("/bookings")({
-  component: BookingsPage,
-});
-
-function BookingsPage() {
+export function BookingsPage() {
   const [bookings, setBookings] = useState<Booking[]>([]);
 
   useEffect(() => {

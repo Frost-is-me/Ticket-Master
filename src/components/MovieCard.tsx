@@ -1,4 +1,4 @@
-import { Link } from "@tanstack/react-router";
+import { Link } from "react-router-dom";
 import type { Movie } from "@/data/movies";
 import { Badge } from "./Badge";
 import { formatDuration } from "@/lib/format";
@@ -6,8 +6,7 @@ import { formatDuration } from "@/lib/format";
 export function MovieCard({ movie }: { movie: Movie }) {
   return (
     <Link
-      to="/movies/$movieId"
-      params={{ movieId: movie.id }}
+      to={`/movies/${movie.id}`}
       className="group flex flex-col overflow-hidden rounded-lg bg-card text-card-foreground shadow-sm transition hover:shadow-md"
     >
       <div className="aspect-[2/3] overflow-hidden bg-muted">
