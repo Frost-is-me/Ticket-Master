@@ -2,7 +2,7 @@
 
 ![Ticket Master Banner](./assets/banner.png)
 
-Ticket Master is a high-end, modern movie reservation platform designed for a seamless and immersive user experience. Built with the latest web technologies, it features a stunning dark-themed interface, interactive seat selection, and a robust booking management system.
+Ticket Master is a high-end, modern movie reservation platform designed for a seamless and immersive user experience. Built with the latest web technologies, interactive seat selection, and a robust booking management system.
 
 ## ✨ Key Features
 
