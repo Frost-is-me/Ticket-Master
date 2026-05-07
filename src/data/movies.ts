@@ -61,4 +61,76 @@ export const movies: Movie[] = [
     durationMinutes: 169,
     genre: ["Sci-Fi", "Drama", "Adventure"],
   },
+  {
+    id: "spiderman-across-spiderverse",
+    title: "Spider-Man: Across the Spider-Verse",
+    description:
+      "Miles Morales catapults across the Multiverse, where he encounters a team of Spider-People charged with protecting its very existence.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/8Vt6mWEReuy4Of61Lnj5Xj704m8.jpg",
+    durationMinutes: 140,
+    genre: ["Animation", "Action", "Adventure", "Sci-Fi"],
+  },
+  {
+    id: "inception",
+    title: "Inception",
+    description:
+      "A thief who steals corporate secrets through the use of dream-sharing technology is given the inverse task of planting an idea into the mind of a C.E.O.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/xlaY2zyzMfkhk0HSC5VUwzoZPU1.jpg",
+    durationMinutes: 148,
+    genre: ["Action", "Sci-Fi", "Adventure"],
+  },
+  {
+    id: "deadpool-wolverine",
+    title: "Deadpool & Wolverine",
+    description:
+      "A listless Wade Wilson toils in civilian life. His days as the morally flexible mercenary, Deadpool, behind him. When his homeworld faces an existential threat.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/8cdWjvZQUExUUTzyp4t6EDMubfO.jpg",
+    durationMinutes: 127,
+    genre: ["Action", "Comedy", "Sci-Fi"],
+  },
+  {
+    id: "gladiator-2",
+    title: "Gladiator II",
+    description:
+      "Years after witnessing the death of the revered hero Maximus at the hands of his uncle, Lucius is forced to enter the Colosseum.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/2cxhvwyEwRlysAmRH4iodkvo0z5.jpg",
+    durationMinutes: 148,
+    genre: ["Action", "Adventure", "Drama"],
+  },
+  {
+    id: "joker-2",
+    title: "Joker: Folie à Deux",
+    description:
+      "Arthur Fleck is institutionalized at Arkham, awaiting trial for his crimes as Joker. While struggling with his dual identity, Arthur not only stumbles upon true love.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/aciP8Km0waTLXEYf5ybFK5CSUxl.jpg",
+    durationMinutes: 138,
+    genre: ["Drama", "Crime", "Thriller"],
+  },
+  {
+    id: "avatar-2",
+    title: "Avatar: The Way of Water",
+    description:
+      "Jake Sully lives with his newfound family formed on the extrasolar moon Pandora. Once a familiar threat returns to finish what was previously started.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/t6HIqrRAclMCA60NsSmeqe9RmNV.jpg",
+    durationMinutes: 192,
+    genre: ["Sci-Fi", "Action", "Adventure"],
+  },
+  {
+    id: "the-godfather",
+    title: "The Godfather",
+    description:
+      "Spanning the years 1945 to 1955, a chronicle of the fictional Italian-American Corleone crime family. When organized crime family patriarch, Vito Corleone, barely survives an attempt on his life.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/3bhkrj58Vtu7enYsRolD1fZdja1.jpg",
+    durationMinutes: 175,
+    genre: ["Drama", "Crime"],
+  },
+  {
+    id: "pulp-fiction",
+    title: "Pulp Fiction",
+    description:
+      "A burger-loving hit man, his philosophical partner, a drug-addled gangster's moll and a washed-up boxer converge in this sprawling, comedic crime caper.",
+    posterUrl: "https://image.tmdb.org/t/p/w500/vQWk5YBFWF4bZaofAbv0tShwBvQ.jpg",
+    durationMinutes: 154,
+    genre: ["Thriller", "Crime"],
+  },
 ];
